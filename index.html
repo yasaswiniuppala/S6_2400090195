@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <form class="login-form" onsubmit="return validateForm()">
+            <h2>Login</h2>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <p class="msg" id="msg"></p>
+        </form>
+    </div>
+
+<script>
+    function validateForm() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let msg = document.getElementById("msg");
+
+        if (password.length < 6) {
+            msg.innerHTML = "Password must be at least 6 characters";
+            msg.style.color = "red";
+            return false;
+        }
+
+        msg.innerHTML = "Login successful!";
+        msg.style.color = "green";
+
+        return false; // prevents refresh for demo
+    }
+</script>
+
+</body>
+</html>
